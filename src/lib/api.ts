@@ -86,8 +86,18 @@ export function getApiErrorMessage(error: unknown, fallback = 'Something went wr
   return fallback;
 }
 
+export function getApiOrigin(): string {
+  const base = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
+  return String(base).replace(/\/api\/v1\/?$/i, '').replace(/\/+$/, '');
+}
+
 export function publicUploadUrl(filename: string | null | undefined): string | null {
   if (!filename) return null;
-  if (/^https?:\/\//i.test(filename) || filename.startsWith('/')) return filename;
-  return `/uploads/${filename}`;
+  if (/^https?:\/\//i.test(filename)) return filename;
+  // Absolute site path that is already a full upload URL on API host
+  if (filename.startsWith('/uploads/')) {
+    return `${getApiOrigin()}${filename}`;
+  }
+  if (filename.startsWith('/')) return filename;
+  return `${getApiOrigin()}/uploads/${filename}`;
 }

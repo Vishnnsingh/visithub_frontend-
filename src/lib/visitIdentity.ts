@@ -291,7 +291,9 @@ export function registerVisitApp(
     start: startUrl,
   });
   const manifestHref = `/g/${code}/manifest.webmanifest?${params.toString()}`;
-  const touchIcon = iconFile ? `/uploads/${iconFile}` : '/pwa-192.png';
+  const touchIcon = iconFile
+    ? `${String(import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1').replace(/\/api\/v1\/?$/i, '')}/uploads/${iconFile}`
+    : '/pwa-192.png';
 
   let link = document.querySelector<HTMLLinkElement>('link[rel="manifest"]');
   if (!link) {
