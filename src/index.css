@@ -1,0 +1,344 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #111827;
+  --color-primary-deep: #030712;
+  --color-secondary: #6b7280;
+  --color-bg: #f9fafb;
+  --color-card: #ffffff;
+  --color-text: #6b7280;
+  --color-success: #22c55e;
+  --color-ink: #111827;
+  --color-ink-soft: #ffffef;
+  --color-panel: #ffffff;
+  --color-mint: #111827;
+  --color-mint-deep: #030712;
+  --color-mint-soft: #e5e7eb;
+  --color-fog: #374151;
+  --color-mute: #6b7280;
+  --color-line: #e5e7eb;
+  --color-danger: #dc2626;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+.app-bg {
+  background:
+    radial-gradient(800px 360px at 0% 0%, rgba(17, 24, 39, 0.04), transparent 55%),
+    radial-gradient(640px 320px at 100% 100%, rgba(107, 114, 128, 0.08), transparent 55%),
+    #f9fafb;
+}
+
+/* Visit scan backgrounds — CSS-only, works on all phones offline */
+.visit-theme-default {
+  background:
+    radial-gradient(800px 360px at 0% 0%, rgba(17, 24, 39, 0.04), transparent 55%),
+    radial-gradient(640px 320px at 100% 100%, rgba(107, 114, 128, 0.08), transparent 55%),
+    #f9fafb;
+}
+
+.visit-theme-mint {
+  background:
+    radial-gradient(520px 280px at 12% 8%, rgba(31, 169, 122, 0.22), transparent 60%),
+    radial-gradient(420px 260px at 92% 18%, rgba(167, 243, 208, 0.45), transparent 55%),
+    radial-gradient(480px 300px at 70% 95%, rgba(209, 250, 229, 0.7), transparent 60%),
+    linear-gradient(180deg, #f4fbf8 0%, #e8f6ef 100%);
+}
+
+.visit-theme-blossom {
+  background-color: #fff1f5;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(251, 113, 133, 0.28) 0 10px, transparent 12px),
+    radial-gradient(circle at 72% 16%, rgba(244, 114, 182, 0.22) 0 14px, transparent 16px),
+    radial-gradient(circle at 40% 68%, rgba(251, 146, 160, 0.2) 0 12px, transparent 14px),
+    radial-gradient(circle at 86% 74%, rgba(244, 63, 94, 0.16) 0 16px, transparent 18px),
+    radial-gradient(circle at 12% 88%, rgba(253, 164, 175, 0.24) 0 11px, transparent 13px),
+    radial-gradient(circle at 58% 42%, rgba(251, 207, 232, 0.55) 0 28px, transparent 30px),
+    linear-gradient(180deg, #fff7fb 0%, #ffe4ef 100%);
+  background-size: 100% 100%;
+}
+
+.visit-theme-lavender {
+  background-color: #f5f3ff;
+  background-image:
+    radial-gradient(circle at 20% 18%, rgba(167, 139, 250, 0.32) 0 11px, transparent 13px),
+    radial-gradient(circle at 78% 14%, rgba(196, 181, 253, 0.28) 0 15px, transparent 17px),
+    radial-gradient(circle at 36% 62%, rgba(221, 214, 254, 0.55) 0 26px, transparent 28px),
+    radial-gradient(circle at 88% 70%, rgba(139, 92, 246, 0.18) 0 13px, transparent 15px),
+    radial-gradient(circle at 14% 86%, rgba(192, 132, 252, 0.22) 0 12px, transparent 14px),
+    radial-gradient(circle at 62% 40%, rgba(237, 233, 254, 0.7) 0 30px, transparent 32px),
+    linear-gradient(180deg, #faf5ff 0%, #ede9fe 100%);
+  background-size: 100% 100%;
+}
+
+.visit-theme-peach {
+  background-color: #fff7ed;
+  background-image:
+    radial-gradient(circle at 16% 20%, rgba(251, 146, 60, 0.28) 0 11px, transparent 13px),
+    radial-gradient(circle at 74% 18%, rgba(253, 186, 116, 0.3) 0 14px, transparent 16px),
+    radial-gradient(circle at 42% 66%, rgba(254, 215, 170, 0.55) 0 28px, transparent 30px),
+    radial-gradient(circle at 90% 72%, rgba(249, 115, 22, 0.16) 0 12px, transparent 14px),
+    radial-gradient(circle at 10% 84%, rgba(253, 186, 116, 0.24) 0 10px, transparent 12px),
+    radial-gradient(circle at 56% 38%, rgba(255, 237, 213, 0.8) 0 32px, transparent 34px),
+    linear-gradient(180deg, #fffaf5 0%, #ffedd5 100%);
+  background-size: 100% 100%;
+}
+
+.visit-theme-sky {
+  background-color: #eff6ff;
+  background-image:
+    radial-gradient(circle at 22% 16%, rgba(96, 165, 250, 0.28) 0 12px, transparent 14px),
+    radial-gradient(circle at 80% 20%, rgba(147, 197, 253, 0.3) 0 16px, transparent 18px),
+    radial-gradient(circle at 38% 70%, rgba(191, 219, 254, 0.55) 0 28px, transparent 30px),
+    radial-gradient(circle at 86% 76%, rgba(59, 130, 246, 0.16) 0 11px, transparent 13px),
+    radial-gradient(circle at 12% 88%, rgba(125, 211, 252, 0.24) 0 10px, transparent 12px),
+    radial-gradient(circle at 60% 42%, rgba(219, 234, 254, 0.75) 0 34px, transparent 36px),
+    linear-gradient(180deg, #f8fbff 0%, #dbeafe 100%);
+  background-size: 100% 100%;
+}
+
+.visit-theme-citrus {
+  background-color: #fefce8;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(250, 204, 21, 0.3) 0 11px, transparent 13px),
+    radial-gradient(circle at 76% 14%, rgba(253, 224, 71, 0.28) 0 15px, transparent 17px),
+    radial-gradient(circle at 40% 64%, rgba(254, 240, 138, 0.55) 0 28px, transparent 30px),
+    radial-gradient(circle at 88% 74%, rgba(234, 179, 8, 0.18) 0 12px, transparent 14px),
+    radial-gradient(circle at 12% 86%, rgba(253, 224, 71, 0.22) 0 10px, transparent 12px),
+    radial-gradient(circle at 58% 40%, rgba(254, 249, 195, 0.8) 0 32px, transparent 34px),
+    linear-gradient(180deg, #fffef5 0%, #fef9c3 100%);
+  background-size: 100% 100%;
+}
+
+.visit-theme-swatch {
+  background-size: cover;
+  background-position: center;
+}
+
+.visit-theme-swatch-default {
+  background:
+    radial-gradient(80px 40px at 20% 20%, rgba(17, 24, 39, 0.08), transparent 60%),
+    #f9fafb;
+}
+
+.visit-theme-swatch-mint {
+  background: linear-gradient(145deg, #f4fbf8, #bbf7d0 55%, #6ee7b7);
+}
+
+.visit-theme-swatch-blossom {
+  background:
+    radial-gradient(circle at 30% 35%, rgba(251, 113, 133, 0.45) 0 8px, transparent 10px),
+    radial-gradient(circle at 70% 60%, rgba(244, 114, 182, 0.35) 0 10px, transparent 12px),
+    linear-gradient(145deg, #fff7fb, #fda4af);
+}
+
+.visit-theme-swatch-lavender {
+  background:
+    radial-gradient(circle at 30% 35%, rgba(167, 139, 250, 0.45) 0 8px, transparent 10px),
+    radial-gradient(circle at 70% 60%, rgba(196, 181, 253, 0.4) 0 10px, transparent 12px),
+    linear-gradient(145deg, #faf5ff, #c4b5fd);
+}
+
+.visit-theme-swatch-peach {
+  background:
+    radial-gradient(circle at 30% 35%, rgba(251, 146, 60, 0.4) 0 8px, transparent 10px),
+    radial-gradient(circle at 70% 60%, rgba(253, 186, 116, 0.35) 0 10px, transparent 12px),
+    linear-gradient(145deg, #fffaf5, #fdba74);
+}
+
+.visit-theme-swatch-sky {
+  background:
+    radial-gradient(circle at 30% 35%, rgba(96, 165, 250, 0.4) 0 8px, transparent 10px),
+    radial-gradient(circle at 70% 60%, rgba(147, 197, 253, 0.35) 0 10px, transparent 12px),
+    linear-gradient(145deg, #f8fbff, #93c5fd);
+}
+
+.visit-theme-swatch-citrus {
+  background:
+    radial-gradient(circle at 30% 35%, rgba(250, 204, 21, 0.4) 0 8px, transparent 10px),
+    radial-gradient(circle at 70% 60%, rgba(253, 224, 71, 0.35) 0 10px, transparent 12px),
+    linear-gradient(145deg, #fffef5, #fde047);
+}
+
+.field-input {
+  width: 100%;
+  appearance: none;
+  border-radius: 1.1rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #111827;
+  padding: 0.82rem 0.95rem 0.82rem 2.85rem;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.field-input:hover {
+  border-color: #9ca3af;
+}
+
+.field-input:focus {
+  border-color: #111827;
+  box-shadow: 0 0 0 4px rgba(17, 24, 39, 0.08);
+  background: #ffffff;
+}
+
+.field-input::placeholder {
+  color: #9ca3af;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.dropdown-list {
+  scrollbar-width: thin;
+  scrollbar-color: #6b7280 #f9fafb;
+}
+
+.dropdown-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-list::-webkit-scrollbar-track {
+  background: #f9fafb;
+  border-radius: 999px;
+}
+
+.dropdown-list::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 999px;
+}
+
+[data-sonner-toaster] {
+  font-family: var(--font-sans) !important;
+  --normal-bg: #ffffff;
+  --normal-border: #e5e7eb;
+  --normal-text: #111827;
+  --success-bg: #ffffff;
+  --success-border: #e5e7eb;
+  --success-text: #111827;
+  --info-bg: #f9fafb;
+  --info-border: #e5e7eb;
+  --info-text: #111827;
+  --warning-bg: #ffffef;
+  --warning-border: #e5e7eb;
+  --warning-text: #111827;
+  --error-bg: #ffffff;
+  --error-border: #e5e7eb;
+  --error-text: #111827;
+}
+
+[data-sonner-toast].app-toast,
+[data-sonner-toast][data-styled='true'] {
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  color: #111827 !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 16px 40px rgba(17, 24, 39, 0.1) !important;
+}
+
+[data-sonner-toast][data-styled='true'] [data-title] {
+  color: #111827 !important;
+  font-weight: 600;
+}
+
+[data-sonner-toast][data-styled='true'] [data-description] {
+  color: #6b7280 !important;
+}
+
+[data-sonner-toast][data-styled='true'] [data-icon] {
+  color: #111827;
+}
+
+[data-sonner-toast][data-type='error'] [data-icon] {
+  color: #6b7280;
+}
+
+[data-sonner-toast][data-styled='true'] [data-close-button] {
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  color: #6b7280 !important;
+}
+
+[data-sonner-toast][data-styled='true'] [data-close-button]:hover {
+  background: #f9fafb !important;
+  border-color: #d1d5db !important;
+  color: #111827 !important;
+}
+
+.org-app-icon,
+.org-app-icon img {
+  width: 96px !important;
+  height: 96px !important;
+  max-width: 96px !important;
+  max-height: 96px !important;
+  object-fit: cover;
+}
+
+@media print {
+  html,
+  body,
+  #root {
+    height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+
+  .app-bg,
+  .app-bg > div,
+  main {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+
+  aside,
+  header,
+  .no-print {
+    display: none !important;
+  }
+
+  .qr-print-card {
+    box-shadow: none !important;
+    border: 1px dashed #111827 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .qr-print-card img {
+    display: block !important;
+    max-width: 220px !important;
+  }
+}
