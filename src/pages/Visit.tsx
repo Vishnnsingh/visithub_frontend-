@@ -274,7 +274,7 @@ export function Visit() {
   const [visitorId, setVisitorId] = useState(() => restoreSession(code).visitorId);
   const [checkout, setCheckout] = useState(false);
   const [successOpen, setSuccessOpen] = useState(false);
-  const [pendingSelfie, setPendingSelfie] = useState(false);
+  const [, setPendingSelfie] = useState(false);
   const [selfieSaved, setSelfieSaved] = useState(false);
   const [bgTheme, setBgTheme] = useState<VisitThemeId>('default');
 

@@ -243,7 +243,6 @@ export function TodayVisitorsChart({
   }, [visitors, meetings]);
 
   const peak = byHour.reduce((best, row) => (row.count > best.count ? row : best), byHour[0] || { label: '—', count: 0 });
-  const topPerson = byPerson[0];
   const availableCount = byPerson.filter((row) => row.status === 'yes').length;
   const unavailableCount = byPerson.filter((row) => row.status === 'no').length;
 

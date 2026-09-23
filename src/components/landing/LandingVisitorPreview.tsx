@@ -92,7 +92,7 @@ export function LandingVisitorPreview({ className }: LandingVisitorPreviewProps)
                 ) : (
                   <HomeElements
                     layout={{
-                      ...(data.homeLayout || { cards: [] }),
+                      ...(data.homeLayout || { cards: [], bgTheme: 'default' as const }),
                       meetingBoardEnabled: true,
                       homeSlotOrder: ['meetingBoard'],
                     }}
